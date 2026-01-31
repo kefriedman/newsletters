@@ -1,9 +1,9 @@
 name: Weekly Economics Newsletter
 
 on:
-  # Run every Tuesday at 8 AM Eastern (1 PM UTC)
+  # Run every Tuesday at 5 AM Eastern (10 AM UTC)
   schedule:
-    - cron: '0 13 * * 2'
+    - cron: '0 10 * * 2'
 
   # Allow manual trigger for testing
   workflow_dispatch:

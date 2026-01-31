@@ -23,7 +23,8 @@ jobs:
           cache: 'pip'
 
       - name: Install dependencies
-        run: pip install -r ai_newsletter/requirements.txt
+        run: pip install -r requirements.txt
+        working-directory: ai_newsletter
 
       - name: Generate and send newsletter
         env:
@@ -31,4 +32,5 @@ jobs:
           AI_GMAIL_ADDRESS: ${{ secrets.AI_GMAIL_ADDRESS }}
           AI_GMAIL_APP_PASSWORD: ${{ secrets.AI_GMAIL_APP_PASSWORD }}
           AI_RECIPIENT_EMAILS: ${{ secrets.AI_RECIPIENT_EMAILS }}
-        run: python ai_newsletter/newsletter.py
+        run: python newsletter.py
+        working-directory: ai_newsletter

@@ -24,6 +24,7 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+        working-directory: econ_newsletter
 
       - name: Generate and send newsletter
         env:
@@ -32,3 +33,4 @@ jobs:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
         run: python newsletter.py
+        working-directory: econ_newsletter

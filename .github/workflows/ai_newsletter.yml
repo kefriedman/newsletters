@@ -1,9 +1,9 @@
 name: Weekly AI Newsletter
 
 on:
-  # Run every Monday at 8 AM Eastern (1 PM UTC)
+  # Run every Monday at 5 AM Eastern (10 AM UTC)
   schedule:
-    - cron: '0 13 * * 1'
+    - cron: '0 10 * * 1'
 
   # Allow manual trigger for testing
   workflow_dispatch:

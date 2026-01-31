@@ -103,24 +103,14 @@ def categorize_paper(title: str, abstract: str) -> str:
     return best_category
 
 
-def is_within_past_month(date_str: str) -> bool:
-    """Check if a date string is within the past 28 days."""
-    try:
-        pub_date = date_parser.parse(date_str, ignoretz=True)
-        month_ago = datetime.now() - timedelta(days=28)
-        return pub_date >= month_ago
-    except (ValueError, TypeError):
-        return True  # Include if we can't parse the date
-
-
 def is_within_past_week(date_str: str) -> bool:
-    """Check if a date string is within the past 7 days (for blog posts)."""
+    """Check if a date string is within the past 7 days."""
     try:
         pub_date = date_parser.parse(date_str, ignoretz=True)
         week_ago = datetime.now() - timedelta(days=7)
         return pub_date >= week_ago
     except (ValueError, TypeError):
-        return True
+        return True  # Include if we can't parse the date
 
 
 def fetch_nber_papers() -> list[Paper]:
@@ -140,7 +130,7 @@ def fetch_nber_papers() -> list[Paper]:
 
     for entry in feed.entries:
         pub_date = entry.get("published", entry.get("updated", ""))
-        if not is_within_past_month(pub_date):
+        if not is_within_past_week(pub_date):
             continue
 
         title = entry.get("title", "")
@@ -168,9 +158,9 @@ def fetch_elite_journal_articles() -> list[Paper]:
     """
     papers = []
 
-    # Past 28 days
-    four_weeks_ago = datetime.now() - timedelta(days=28)
-    from_date = four_weeks_ago.strftime("%Y-%m-%d")
+    # Past 7 days
+    one_week_ago = datetime.now() - timedelta(days=7)
+    from_date = one_week_ago.strftime("%Y-%m-%d")
 
     # Elite journals only
     source_filter = "|".join(ELITE_JOURNAL_IDS)
@@ -254,9 +244,9 @@ def fetch_papers_from_top_economists() -> list[Paper]:
     """
     papers = []
 
-    # Past 28 days
-    four_weeks_ago = datetime.now() - timedelta(days=28)
-    from_date = four_weeks_ago.strftime("%Y-%m-%d")
+    # Past 7 days
+    one_week_ago = datetime.now() - timedelta(days=7)
+    from_date = one_week_ago.strftime("%Y-%m-%d")
 
     # Query for economics papers
     params = {

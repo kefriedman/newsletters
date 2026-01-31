@@ -1,0 +1,34 @@
+name: Weekly AI Newsletter
+
+on:
+  # Run every Monday at 8 AM Eastern (1 PM UTC)
+  schedule:
+    - cron: '0 13 * * 1'
+
+  # Allow manual trigger for testing
+  workflow_dispatch:
+
+jobs:
+  send-newsletter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r ai_newsletter/requirements.txt
+
+      - name: Generate and send newsletter
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          AI_GMAIL_ADDRESS: ${{ secrets.AI_GMAIL_ADDRESS }}
+          AI_GMAIL_APP_PASSWORD: ${{ secrets.AI_GMAIL_APP_PASSWORD }}
+          AI_RECIPIENT_EMAILS: ${{ secrets.AI_RECIPIENT_EMAILS }}
+        run: python ai_newsletter/newsletter.py

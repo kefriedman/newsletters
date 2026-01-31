@@ -4,6 +4,7 @@ Generates newsletter content from collected papers and blog posts.
 """
 
 import os
+import re
 from anthropic import Anthropic
 from sources import Paper, BlogPost
 
@@ -11,6 +12,15 @@ from sources import Paper, BlogPost
 def get_client() -> Anthropic:
     """Initialize Anthropic client."""
     return Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
+
+
+def strip_markdown_fences(text: str) -> str:
+    """Remove markdown code fences and headers from Claude's response."""
+    text = re.sub(r'^```(?:html)?\s*\n?', '', text.strip())
+    text = re.sub(r'\n?```\s*$', '', text.strip())
+    # Remove markdown headers at the start (## Title, # Title, etc.)
+    text = re.sub(r'^#{1,3}\s+[^\n]+\n*', '', text.strip())
+    return text
 
 
 def summarize_papers(papers: list[Paper], category: str) -> str:
@@ -41,18 +51,20 @@ Here are the new working papers published this week:
 
 Create an engaging newsletter section that:
 1. Starts with a brief (1-2 sentence) overview of what's notable in {category} this week
-2. Highlights the 3-5 most interesting/significant papers with:
-   - Paper title (as a header)
-   - Authors
-   - 2-3 sentence summary of key findings in accessible language
-   - Why it matters (1 sentence on implications)
+2. Highlights the 3-5 most interesting/significant papers
 3. Briefly mention any other notable papers worth reading
 
-Format the output in clean HTML suitable for an email newsletter. Use:
-- <h3> for paper titles
-- <p> for paragraphs
-- <strong> for emphasis
-- <a href="URL"> for paper links
+Format as clean HTML for an email newsletter. Each paper should be structured like this:
+
+<p><em>Overview sentence about this week in {category}.</em></p>
+
+<h3><a href="URL">Paper Title</a></h3>
+<p><strong>Authors:</strong> Author names</p>
+<p>2-3 sentence summary of key findings in accessible language. Why it matters: one sentence on implications.</p>
+
+<h3><a href="URL">Another Paper</a></h3>
+<p><strong>Authors:</strong> Author names</p>
+<p>Summary here.</p>
 
 Keep the tone professional but accessible. Total length should be around 400-600 words."""
 
@@ -62,7 +74,7 @@ Keep the tone professional but accessible. Total length should be around 400-600
         messages=[{"role": "user", "content": prompt}]
     )
 
-    return response.content[0].text
+    return strip_markdown_fences(response.content[0].text)
 
 
 def generate_top_papers(papers: list[Paper]) -> str:
@@ -92,18 +104,23 @@ From these papers, select the TOP 3 most significant, interesting, or impactful 
 
 {papers_text}
 
-For each of the top 3 papers, provide:
-1. An attention-grabbing headline summarizing the key finding
-2. Title and authors
-3. A compelling 3-4 sentence explanation of what the paper found and why economists should care
-4. The source link
+For each of the top 3 papers, provide an attention-grabbing headline, the paper details, and why it matters.
 
-Format as clean HTML for an email newsletter highlight box. Use:
-- <div class="top-paper"> for each paper
-- <h3> for the headline
-- <p class="paper-meta"> for title/authors
-- <p> for the description
-- <a href="URL" class="read-more"> for the link
+Format as clean HTML for an email newsletter. Each paper should be structured like this:
+
+<div class="top-paper">
+<h3>Attention-Grabbing Headline About Key Finding</h3>
+<p class="paper-meta"><strong>Title:</strong> Paper Title | <strong>Authors:</strong> Author names</p>
+<p>A compelling 3-4 sentence explanation of what the paper found and why economists should care.</p>
+<p><a href="URL" class="read-more">Read the paper →</a></p>
+</div>
+
+<div class="top-paper">
+<h3>Second Paper Headline</h3>
+<p class="paper-meta"><strong>Title:</strong> Paper Title | <strong>Authors:</strong> Author names</p>
+<p>Description here.</p>
+<p><a href="URL" class="read-more">Read the paper →</a></p>
+</div>
 
 Make it engaging and accessible to both economists and interested general readers."""
 
@@ -113,7 +130,7 @@ Make it engaging and accessible to both economists and interested general reader
         messages=[{"role": "user", "content": prompt}]
     )
 
-    return response.content[0].text
+    return strip_markdown_fences(response.content[0].text)
 
 
 def summarize_blog_discussions(posts: list[BlogPost]) -> str:
@@ -142,17 +159,17 @@ Here are recent posts from top economics blogs:
 
 Create a "Discussion Highlights" section that:
 1. Opens with a 1-sentence overview of what economists are debating this week
-2. Highlights 3-5 most interesting discussions with:
-   - A catchy description of the topic/debate
-   - The blog name
-   - 1-2 sentences on the key argument or insight
-   - Link to read more
+2. Highlights 3-5 most interesting discussions
 
-Format as clean HTML for an email newsletter. Use:
-- <h3> for each highlight
-- <p> for descriptions
-- <span class="source"> for blog name
-- <a href="URL"> for links
+Format as clean HTML for an email newsletter. Each discussion should be its own block:
+
+<p><em>Overview sentence about this week's debates.</em></p>
+
+<h3>Catchy Topic Title</h3>
+<p><span class="source">Blog Name</span> — 1-2 sentences on the key argument or insight. <a href="URL">Read more</a></p>
+
+<h3>Another Topic</h3>
+<p><span class="source">Blog Name</span> — Description here. <a href="URL">Read more</a></p>
 
 Keep it lively and engaging. Total length around 200-300 words."""
 
@@ -162,7 +179,7 @@ Keep it lively and engaging. Total length around 200-300 words."""
         messages=[{"role": "user", "content": prompt}]
     )
 
-    return response.content[0].text
+    return strip_markdown_fences(response.content[0].text)
 
 
 def generate_newsletter_content(

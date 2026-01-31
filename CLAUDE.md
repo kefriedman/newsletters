@@ -8,8 +8,8 @@ This repository contains automated newsletter generators using Claude AI:
 
 | Newsletter | Directory | Schedule | Recipients |
 |------------|-----------|----------|------------|
-| **Economics Newsletter** | `econ_newsletter/` | Tuesday 8 AM ET | Single |
-| **AI Newsletter** | `ai_newsletter/` | Monday 8 AM ET | Multiple |
+| **Economics Newsletter** | `econ_newsletter/` | Tuesday 5 AM ET | Single |
+| **AI Newsletter** | `ai_newsletter/` | Monday 5 AM ET | Multiple |
 
 ---
 

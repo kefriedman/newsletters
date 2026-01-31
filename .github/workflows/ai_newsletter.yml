@@ -5,8 +5,16 @@ on:
   schedule:
     - cron: '0 10 * * 1'
 
-  # Allow manual trigger for testing
+  # Allow manual trigger with mode selection
   workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Run mode'
+        default: 'test'
+        type: choice
+        options:
+          - test
+          - production
 
 jobs:
   send-newsletter:
@@ -31,6 +39,31 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           AI_GMAIL_ADDRESS: ${{ secrets.AI_GMAIL_ADDRESS }}
           AI_GMAIL_APP_PASSWORD: ${{ secrets.AI_GMAIL_APP_PASSWORD }}
-          AI_RECIPIENT_EMAILS: ${{ secrets.AI_RECIPIENT_EMAILS }}
+          GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
+          AI_SPREADSHEET_ID: ${{ secrets.AI_SPREADSHEET_ID }}
+          AI_UNSUBSCRIBE_URL: ${{ secrets.AI_UNSUBSCRIBE_URL }}
+          TEST_EMAIL: ${{ secrets.TEST_EMAIL }}
+          TEST_MODE: ${{ github.event_name == 'schedule' && 'false' || inputs.mode == 'production' && 'false' || 'true' }}
         run: python newsletter.py
         working-directory: ai_newsletter
+
+      - name: Archive newsletter
+        if: ${{ github.event_name == 'schedule' || inputs.mode == 'production' }}
+        run: |
+          # Get today's date for the filename
+          DATE=$(date +%Y-%m-%d)
+
+          # Copy the generated newsletter to the archive
+          cp ai_newsletter/newsletter_output.html docs/ai/archive/${DATE}.html
+
+          # Update the archive index
+          python update_archive_index.py ai
+
+      - name: Commit and push archive
+        if: ${{ github.event_name == 'schedule' || inputs.mode == 'production' }}
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add docs/ai/archive/
+          git diff --staged --quiet || git commit -m "Add AI newsletter archive for $(date +%Y-%m-%d)"
+          git push

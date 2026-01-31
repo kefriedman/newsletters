@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What You Need to Know: Economics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #0f0f1a;
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
+        nav {
+            background-color: #1a1a2e;
+            padding: 15px 20px;
+            text-align: center;
+            border-bottom: 1px solid #2d3748;
+        }
+        nav a {
+            color: #a0aec0;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        nav a:hover, nav a.active {
+            color: #48bb78;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+            padding: 40px 30px;
+            border-radius: 12px 12px 0 0;
+            text-align: center;
+        }
+        .header h1 {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .header p {
+            color: rgba(255,255,255,0.8);
+            font-size: 16px;
+        }
+        .content {
+            background-color: #1a1a2e;
+            padding: 30px;
+            border-radius: 0 0 12px 12px;
+        }
+        .description {
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+        .description h2 {
+            color: #ffffff;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .description ul {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+        .description li {
+            margin-bottom: 8px;
+            color: #a0aec0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #a0aec0;
+            font-size: 14px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #2d3748;
+            border-radius: 8px;
+            background-color: #0f0f1a;
+            color: #e2e8f0;
+            font-size: 16px;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #48bb78;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+            border: none;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(72, 187, 120, 0.4);
+        }
+        .message {
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+        .message.success {
+            background-color: rgba(72, 187, 120, 0.2);
+            border: 1px solid #48bb78;
+            color: #48bb78;
+        }
+        .message.error {
+            background-color: rgba(245, 101, 101, 0.2);
+            border: 1px solid #f56565;
+            color: #f56565;
+        }
+        .archive-link {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #2d3748;
+        }
+        .archive-link a {
+            color: #48bb78;
+            text-decoration: none;
+        }
+        .archive-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../ai/">What You Need to Know: AI</a>
+        <a href="../economics/" class="active">What You Need to Know: Economics</a>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>What You Need to Know: Economics</h1>
+            <p>Weekly research highlights for economists</p>
+        </div>
+
+        <div class="content">
+            <div class="description">
+                <h2>Stay current with economics research</h2>
+                <p>A weekly newsletter covering the latest in economics:</p>
+                <ul>
+                    <li>Top papers from NBER and leading journals</li>
+                    <li>Highlights in Micro, Macro, and Econometrics</li>
+                    <li>Discussions from top economics blogs</li>
+                </ul>
+                <p style="margin-top: 15px; color: #a0aec0;">Delivered every Tuesday morning.</p>
+            </div>
+
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email" required placeholder="you@example.com">
+                </div>
+                <button type="submit" class="submit-btn">Subscribe</button>
+            </form>
+
+            <div id="message" class="message"></div>
+
+            <div class="archive-link">
+                <a href="archive/">View past newsletters &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyiCElbEdBnUbnwxs2YPXE9CiD3dGPCCtVQkXqFJCUKyyBnGhKtLn5VWbC7swy6FqRc/exec';
+        const SHEET_ID = '1ctb7cuNAbso83BlMLV4dxkd7AukieQUx8cf_PbDDPmo';
+
+        document.getElementById('signup-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const messageEl = document.getElementById('message');
+            const submitBtn = document.querySelector('.submit-btn');
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Subscribing...';
+
+            try {
+                const response = await fetch(APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'subscribe',
+                        email: email,
+                        sheetId: SHEET_ID,
+                        newsletter: 'economics'
+                    })
+                });
+
+                messageEl.className = 'message success';
+                messageEl.textContent = 'Thanks for subscribing! Check your inbox on Tuesday.';
+                messageEl.style.display = 'block';
+                document.getElementById('email').value = '';
+            } catch (error) {
+                messageEl.className = 'message error';
+                messageEl.textContent = 'Something went wrong. Please try again.';
+                messageEl.style.display = 'block';
+            }
+
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Subscribe';
+        });
+    </script>
+</body>
+</html>

@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
-Weekly Economics Newsletter Generator
+What You Need to Know: Economics - Weekly Newsletter Generator
 
 This script:
 1. Fetches recent economics papers from NBER, arXiv, and Federal Reserve
 2. Fetches discussions from economics blogs
 3. Uses Claude AI to summarize and highlight the most interesting content
 4. Sends a formatted HTML newsletter via Gmail
+5. Saves HTML for archiving
 """
 
 import os
@@ -34,6 +35,9 @@ def render_newsletter(content: dict[str, str]) -> str:
     today = datetime.now()
     date_str = today.strftime("%B %d, %Y")
 
+    # Get unsubscribe URL from env (set after GitHub Pages is configured)
+    unsubscribe_url = os.environ.get("ECON_UNSUBSCRIBE_URL", "#")
+
     return template.render(
         date=date_str,
         top_papers=content["top_papers"],
@@ -41,15 +45,40 @@ def render_newsletter(content: dict[str, str]) -> str:
         microeconomics=content["microeconomics"],
         econometrics=content["econometrics"],
         discussions=content["discussions"],
+        unsubscribe_url=unsubscribe_url,
     )
+
+
+def save_newsletter_html(html: str, output_path: str | None = None) -> str:
+    """Save newsletter HTML to a file for archiving.
+
+    Args:
+        html: The newsletter HTML content
+        output_path: Optional path to save to (defaults to newsletter_output.html)
+
+    Returns:
+        Path to the saved file
+    """
+    if output_path is None:
+        output_path = Path(__file__).parent / "newsletter_output.html"
+    else:
+        output_path = Path(output_path)
+
+    output_path.write_text(html)
+    return str(output_path)
 
 
 def main():
     """Generate and send the weekly economics newsletter."""
     print("=" * 60)
-    print("Weekly Economics Newsletter Generator")
+    print("What You Need to Know: Economics")
     print("=" * 60)
     print()
+
+    test_mode = os.environ.get("TEST_MODE", "").lower() == "true"
+    if test_mode:
+        print("[TEST MODE] Newsletter will only be sent to test email")
+        print()
 
     # Step 1: Fetch data from all sources
     print("Step 1: Fetching papers and blog posts...")
@@ -75,13 +104,18 @@ def main():
     print("-" * 40)
     html = render_newsletter(content)
     print(f"Generated HTML: {len(html)} characters")
+
+    # Save HTML for archiving (only in production mode)
+    if not test_mode:
+        output_file = save_newsletter_html(html)
+        print(f"Saved to: {output_file}")
     print()
 
     # Step 4: Send email
     print("Step 4: Sending newsletter...")
     print("-" * 40)
     today = datetime.now()
-    subject = f"Weekly Economics Briefing - {today.strftime('%B %d, %Y')}"
+    subject = f"What You Need to Know: Economics - {today.strftime('%B %d, %Y')}"
 
     success = send_newsletter(html, subject)
 

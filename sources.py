@@ -178,7 +178,7 @@ def fetch_elite_journal_articles() -> list[Paper]:
     params = {
         "filter": f"from_publication_date:{from_date},type:article,has_abstract:true,primary_location.source.id:{source_filter}",
         "sort": "publication_date:desc",
-        "per_page": 50,
+        "per_page": 200,  # Get ALL papers from elite journals - don't miss any
         "select": "id,doi,title,authorships,abstract_inverted_index,publication_date,primary_location,cited_by_count",
         "mailto": "newsletter@example.com",
     }
@@ -228,8 +228,8 @@ def fetch_elite_journal_articles() -> list[Paper]:
         pub_date = work.get("publication_date", "")
         cited_by = work.get("cited_by_count", 0) or 0
 
-        # Elite journal papers get high base score
-        citation_score = 1000 + cited_by * 10 + (max_author_citations // 100)
+        # Elite journal papers get very high base score - these should NEVER be missed
+        citation_score = 10000 + cited_by * 10 + (max_author_citations // 100)
 
         paper: Paper = {
             "title": title,
@@ -402,7 +402,10 @@ def fetch_all_papers() -> list[Paper]:
     print("Fetching NBER working papers...")
     all_papers.extend(fetch_nber_papers())
 
-    # Remove duplicates by title (case-insensitive)
+    # Sort by citation score FIRST (elite journals score 10000+)
+    all_papers.sort(key=lambda p: p.get("citation_score", 0), reverse=True)
+
+    # Remove duplicates by title - keeping highest scored version (which comes first after sorting)
     seen_titles = set()
     unique_papers = []
     for paper in all_papers:
@@ -410,9 +413,6 @@ def fetch_all_papers() -> list[Paper]:
         if title_lower not in seen_titles:
             seen_titles.add(title_lower)
             unique_papers.append(paper)
-
-    # Sort by citation score (high impact first)
-    unique_papers.sort(key=lambda p: p.get("citation_score", 0), reverse=True)
 
     print(f"Total papers from elite sources: {len(unique_papers)}")
     return unique_papers

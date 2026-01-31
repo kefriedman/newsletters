@@ -72,9 +72,9 @@ def generate_top_papers(papers: list[Paper]) -> str:
 
     client = get_client()
 
-    # Format all papers
+    # Format all papers - include more to ensure elite journal papers aren't missed
     papers_text = ""
-    for i, paper in enumerate(papers[:30], 1):
+    for i, paper in enumerate(papers[:50], 1):
         papers_text += f"""
 Paper {i}:
 Title: {paper['title']}

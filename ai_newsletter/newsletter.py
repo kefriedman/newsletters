@@ -36,8 +36,8 @@ def render_newsletter(content: dict[str, str]) -> str:
     today = datetime.now()
     date_str = today.strftime("%B %d, %Y")
 
-    # Get unsubscribe URL from env (set after GitHub Pages is configured)
-    unsubscribe_url = os.environ.get("AI_UNSUBSCRIBE_URL", "#")
+    # Use placeholder that emailer will replace with personalized URL
+    unsubscribe_url = "{{UNSUBSCRIBE_URL}}"
 
     return template.render(
         date=date_str,

@@ -143,9 +143,9 @@ def send_newsletter(
                             "newsletter": "economics"
                         })
                         unsubscribe_url = f"{apps_script_url}?{unsubscribe_params}"
-                        # Replace placeholder URL with personalized one
+                        # Replace placeholder with personalized URL
                         personalized_html = html_content.replace(
-                            os.environ.get("ECON_UNSUBSCRIBE_URL", "#"),
+                            "{{UNSUBSCRIBE_URL}}",
                             unsubscribe_url
                         )
 

@@ -7,6 +7,7 @@ import os
 import json
 import base64
 import smtplib
+from urllib.parse import urlencode
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
@@ -124,19 +125,37 @@ def send_newsletter(
     success_count = 0
     fail_count = 0
 
+    # Get Apps Script URL for unsubscribe
+    apps_script_url = os.environ.get("APPS_SCRIPT_URL", "")
+
     try:
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
             server.login(gmail_address, gmail_app_password)
 
             for recipient_email in recipients:
                 try:
+                    # Personalize unsubscribe URL for this recipient
+                    personalized_html = html_content
+                    if apps_script_url:
+                        unsubscribe_params = urlencode({
+                            "action": "unsubscribe",
+                            "email": recipient_email,
+                            "newsletter": "economics"
+                        })
+                        unsubscribe_url = f"{apps_script_url}?{unsubscribe_params}"
+                        # Replace placeholder URL with personalized one
+                        personalized_html = html_content.replace(
+                            os.environ.get("ECON_UNSUBSCRIBE_URL", "#"),
+                            unsubscribe_url
+                        )
+
                     msg = MIMEMultipart("alternative")
                     msg["Subject"] = subject
                     msg["From"] = f"What You Need to Know: Economics <{gmail_address}>"
                     msg["To"] = recipient_email
 
                     msg.attach(MIMEText(plain_text, "plain"))
-                    msg.attach(MIMEText(html_content, "html"))
+                    msg.attach(MIMEText(personalized_html, "html"))
 
                     server.send_message(msg)
                     print(f"  Sent to: {recipient_email}")

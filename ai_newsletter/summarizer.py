@@ -16,6 +16,14 @@ def get_client() -> Anthropic:
     return Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
 
+def extract_response_text(response) -> str:
+    """Extract text from Anthropic API response, handling optional thinking blocks."""
+    for block in response.content:
+        if getattr(block, "type", None) == "text" or hasattr(block, "text"):
+            return block.text
+    return ""
+
+
 def strip_markdown_fences(text: str) -> str:
     """Remove markdown code fences and headers from Claude's response."""
     # Remove ```html ... ``` or ``` ... ``` wrappers
@@ -24,6 +32,7 @@ def strip_markdown_fences(text: str) -> str:
     # Remove markdown headers at the start (## Title, # Title, etc.)
     text = re.sub(r'^#{1,3}\s+[^\n]+\n*', '', text.strip())
     return text
+
 
 
 def summarize_news(posts: list[BlogPost]) -> str:
@@ -73,7 +82,7 @@ Keep it scannable. Around 300-400 words total."""
         messages=[{"role": "user", "content": prompt}]
     )
 
-    return strip_markdown_fences(response.content[0].text)
+    return strip_markdown_fences(extract_response_text(response))
 
 
 def summarize_tools(tools: list[Tool]) -> str:
@@ -114,7 +123,7 @@ Keep each tool description to 2-3 sentences max. Output ONLY the <p> tags, nothi
         messages=[{"role": "user", "content": prompt}]
     )
 
-    return strip_markdown_fences(response.content[0].text)
+    return strip_markdown_fences(extract_response_text(response))
 
 
 def summarize_research(papers: list[Paper]) -> str:
@@ -162,7 +171,7 @@ Keep it brief - around 150-200 words total. Quality over quantity."""
         messages=[{"role": "user", "content": prompt}]
     )
 
-    return strip_markdown_fences(response.content[0].text)
+    return strip_markdown_fences(extract_response_text(response))
 
 
 def generate_newsletter_content(

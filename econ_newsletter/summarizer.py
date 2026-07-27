@@ -16,6 +16,14 @@ def get_client() -> Anthropic:
     return Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
 
+def extract_response_text(response) -> str:
+    """Extract text from Anthropic API response, handling optional thinking blocks."""
+    for block in response.content:
+        if getattr(block, "type", None) == "text" or hasattr(block, "text"):
+            return block.text
+    return ""
+
+
 def strip_markdown_fences(text: str) -> str:
     """Remove markdown code fences and headers from Claude's response."""
     text = re.sub(r'^```(?:html)?\s*\n?', '', text.strip())
@@ -23,6 +31,7 @@ def strip_markdown_fences(text: str) -> str:
     # Remove markdown headers at the start (## Title, # Title, etc.)
     text = re.sub(r'^#{1,3}\s+[^\n]+\n*', '', text.strip())
     return text
+
 
 
 def summarize_papers(papers: list[Paper], category: str) -> str:
@@ -76,7 +85,7 @@ Keep the tone professional but accessible. Total length should be around 400-600
         messages=[{"role": "user", "content": prompt}]
     )
 
-    return strip_markdown_fences(response.content[0].text)
+    return strip_markdown_fences(extract_response_text(response))
 
 
 def generate_top_papers(papers: list[Paper]) -> str:
@@ -132,7 +141,7 @@ Make it engaging and accessible to both economists and interested general reader
         messages=[{"role": "user", "content": prompt}]
     )
 
-    return strip_markdown_fences(response.content[0].text)
+    return strip_markdown_fences(extract_response_text(response))
 
 
 def summarize_blog_discussions(posts: list[BlogPost]) -> str:
@@ -181,7 +190,7 @@ Keep it lively and engaging. Total length around 200-300 words."""
         messages=[{"role": "user", "content": prompt}]
     )
 
-    return strip_markdown_fences(response.content[0].text)
+    return strip_markdown_fences(extract_response_text(response))
 
 
 def generate_newsletter_content(

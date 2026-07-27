@@ -21,3 +21,9 @@ env/
 .DS_Store
 Thumbs.db
 newsletter-system-486019-d9f10b479640.json
+
+# Logs
+logs/
+logs_*/
+*.log
+

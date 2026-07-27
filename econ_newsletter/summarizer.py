@@ -8,6 +8,8 @@ import re
 from anthropic import Anthropic
 from sources import Paper, BlogPost
 
+MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-5")
+
 
 def get_client() -> Anthropic:
     """Initialize Anthropic client."""
@@ -69,7 +71,7 @@ Format as clean HTML for an email newsletter. Each paper should be structured li
 Keep the tone professional but accessible. Total length should be around 400-600 words."""
 
     response = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model=MODEL,
         max_tokens=2000,
         messages=[{"role": "user", "content": prompt}]
     )
@@ -125,7 +127,7 @@ Format as clean HTML for an email newsletter. Each paper should be structured li
 Make it engaging and accessible to both economists and interested general readers."""
 
     response = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model=MODEL,
         max_tokens=1500,
         messages=[{"role": "user", "content": prompt}]
     )
@@ -174,7 +176,7 @@ Format as clean HTML for an email newsletter. Each discussion should be its own 
 Keep it lively and engaging. Total length around 200-300 words."""
 
     response = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model=MODEL,
         max_tokens=1000,
         messages=[{"role": "user", "content": prompt}]
     )

@@ -8,6 +8,8 @@ import re
 from anthropic import Anthropic
 from sources import Paper, BlogPost, Tool
 
+MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-5")
+
 
 def get_client() -> Anthropic:
     """Initialize Anthropic client."""
@@ -66,7 +68,7 @@ Format as clean HTML:
 Keep it scannable. Around 300-400 words total."""
 
     response = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model=MODEL,
         max_tokens=1500,
         messages=[{"role": "user", "content": prompt}]
     )
@@ -107,7 +109,7 @@ Format as HTML with each tool as its own <p> tag:
 Keep each tool description to 2-3 sentences max. Output ONLY the <p> tags, nothing else."""
 
     response = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model=MODEL,
         max_tokens=800,
         messages=[{"role": "user", "content": prompt}]
     )
@@ -155,7 +157,7 @@ Format as clean HTML:
 Keep it brief - around 150-200 words total. Quality over quantity."""
 
     response = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model=MODEL,
         max_tokens=800,
         messages=[{"role": "user", "content": prompt}]
     )

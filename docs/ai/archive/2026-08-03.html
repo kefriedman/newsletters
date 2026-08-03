@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What You Need to Know: AI</title>
+    <style>
+        @media only screen and (max-width: 620px) {
+            .main-container {
+                width: 100% !important;
+            }
+            .content-padding {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+            .header-padding {
+                padding: 25px 20px !important;
+            }
+            .section-title {
+                font-size: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #0f0f1a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #0f0f1a;">
+        <tr>
+            <td align="center" style="padding: 20px 10px;">
+                <!-- Main Container -->
+                <table role="presentation" class="main-container" width="100%" cellspacing="0" cellpadding="0" style="max-width: 600px; background-color: #1a1a2e; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+
+                    <!-- Header -->
+                    <tr>
+                        <td class="header-padding" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 35px 30px; border-radius: 12px 12px 0 0;">
+                            <h1 style="margin: 0; color: #ffffff; font-size: 26px; font-weight: 600; letter-spacing: -0.5px;">
+                                What You Need to Know: AI
+                            </h1>
+                            <p style="margin: 10px 0 0 0; color: rgba(255,255,255,0.8); font-size: 14px;">
+                                August 03, 2026
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- This Week in AI (Main News Section) -->
+                    <tr>
+                        <td class="content-padding" style="padding: 25px 30px;">
+                            <h2 class="section-title" style="margin: 0 0 15px 0; color: #ffffff; font-size: 21px; border-bottom: 2px solid #667eea; padding-bottom: 10px; font-weight: 600;">
+                                This Week in AI
+                            </h2>
+                            <div style="color: #e2e8f0; font-size: 15px; line-height: 1.7;">
+                                <h3>This Week in AI</h3>
+
+<p>It was a heavyweight week: Anthropic shipped two new flagship models back-to-back, Google DeepMind pushed robotics AI toward true physical agency, and the industry continued grappling with how to handle safety and openness at scale. If you build with AI models or deploy agents in production, there's a lot to digest below.</p>
+
+<h3>Claude Opus 5 and Sonnet 5 raise the bar for coding and agents</h3>
+<p><strong>Anthropic released two major model upgrades in quick succession</strong> — Sonnet 5 on June 30 and Opus 5 on July 24. Opus 5 is positioned as a "step change" for long-running agentic workflows, with notable gains in coding and professional-task performance, while Sonnet 5 targets frontier-level performance at scale for the same use cases. For practitioners, this means it's worth re-benchmarking your agent pipelines and coding assistants against both tiers — the performance/cost tradeoff between them may have shifted significantly.</p>
+<a href="https://www.anthropic.com/news/claude-opus-5">Read about Claude Opus 5</a> · <a href="https://www.anthropic.com/news/claude-sonnet-5">Read about Claude Sonnet 5</a>
+
+<h3>Gemini Robotics gets a major upgrade — twice</h3>
+<p><strong>Google DeepMind shipped both Gemini Robotics 2 and Gemini Robotics ER 2</strong> this week, advancing "whole body intelligence" for robots alongside stronger video understanding, tool orchestration, and multi-robot collaboration. This is a meaningful step toward robots that can reason about complex physical tasks and coordinate with each other, not just execute single scripted actions. Teams working in robotics or embodied AI should evaluate these models for planning and perception layers.</p>
+<a href="https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/">Gemini Robotics 2</a> · <a href="https://deepmind.google/blog/gemini-robotics-er-2-powering-robotics-with-video-understanding-task-orchestration-and-multi-robot-collaboration/">Gemini Robotics ER 2</a>
+
+<h3>Lyria 3.5 lands in Google Flow Music</h3>
+<p>Google DeepMind's <strong>Lyria 3.5</strong> brings improvements to musicality, lyrics, vocals, and creative control inside Flow Music. For builders in generative audio/music tools, this raises the baseline quality bar and offers new controllable parameters worth testing against existing music-gen stacks.</p>
+<a href="https://deepmind.google/blog/were-launching-lyria-35-in-google-flow-music-with-advances-across-musicality-lyrics-vocals-and-creative-control/">Learn more</a>
+
+<h3>Anthropic addresses real-world cybersecurity incidents and open-weights stance</h3>
+<p>Anthropic's Frontier Red Team published findings on <strong>three real-world cybersecurity incidents</strong> surfaced through its evaluations, alongside a new public <strong>position on open-weights models</strong>. Both are worth a read for teams thinking about model governance, security postures, and how deployment decisions intersect with policy — especially as Anthropic also launched a public callout for "hard questions" about AI safety.</p>
+<a href="https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals">Cybersecurity incidents</a> · <a href="https://www.anthropic.com/news/position-open-weights-models">Open-weights position</a> · <a href="https://www.anthropic.com/news/hard-questions">Hard Questions initiative</a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Divider -->
+                    <tr>
+                        <td class="content-padding" style="padding: 0 30px;">
+                            <hr style="border: none; border-top: 1px solid #2d3748; margin: 0;">
+                        </td>
+                    </tr>
+
+                    <!-- Tools Section -->
+                    <tr>
+                        <td class="content-padding" style="padding: 25px 30px;">
+                            <h2 class="section-title" style="margin: 0 0 15px 0; color: #ffffff; font-size: 21px; border-bottom: 2px solid #48bb78; padding-bottom: 10px; font-weight: 600;">
+                                Tools &amp; Repos
+                            </h2>
+                            <div style="color: #e2e8f0; font-size: 15px; line-height: 1.7;">
+                                <p><strong><a href="https://github.com/openai/whisper">Whisper</a></strong> — OpenAI's robust speech recognition model trained via large-scale weak supervision, supporting transcription and translation across many languages. Good for developers building voice-to-text pipelines or audio processing applications.</p>
+<p><strong><a href="https://github.com/microsoft/onnxruntime">ONNX Runtime</a></strong> — A cross-platform, high-performance engine for running and training ML models across hardware backends. Good for engineers optimizing inference speed and deploying models in production environments.</p>
+<p><strong><a href="https://github.com/langchain-ai/langchain">LangChain</a></strong> — An agent engineering platform for building, orchestrating, and deploying LLM-powered applications and agents. Good for developers creating complex AI workflows and autonomous agent systems.</p>
+<p><strong><a href="https://github.com/n8n-io/n8n">n8n</a></strong> — A fair-code workflow automation platform with native AI capabilities, offering visual building, custom code, and 400+ integrations. Good for teams automating processes and connecting AI models into business workflows without heavy coding.</p>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Divider -->
+                    <tr>
+                        <td class="content-padding" style="padding: 0 30px;">
+                            <hr style="border: none; border-top: 1px solid #2d3748; margin: 0;">
+                        </td>
+                    </tr>
+
+                    <!-- Research Section -->
+                    <tr>
+                        <td class="content-padding" style="padding: 25px 30px;">
+                            <h2 class="section-title" style="margin: 0 0 15px 0; color: #ffffff; font-size: 21px; border-bottom: 2px solid #ed8936; padding-bottom: 10px; font-weight: 600;">
+                                Research Worth Knowing
+                            </h2>
+                            <div style="color: #e2e8f0; font-size: 15px; line-height: 1.7;">
+                                <h3>Stop Re-Tokenizing Your Entire Agent Transcript on Every Call</h3>
+<p>Most LLM serving front ends re-tokenize the full conversation history every time an agent makes a call, even though 96%+ of calls are just small appends to an existing session. TokTier shows this is a real, measurable cost at scale (150K+ real agent calls analyzed) and offers exact stateful tokenization to avoid the waste—directly relevant if you're running or optimizing agentic LLM infrastructure.</p>
+<a href="https://arxiv.org/abs/2607.29678v1">Read more</a>
+
+<h3>Smarter KV Cache Compression That Doesn't Just Throw Data Away</h3>
+<p>Long-context inference typically compresses KV cache by evicting tokens, which permanently loses their contribution to attention—hurting quality. ResKV instead reconstructs the "missing" statistical contribution of evicted tokens, preserving more accuracy at the same memory budget, which matters for anyone serving long-context models cost-effectively.</p>
+<a href="https://arxiv.org/abs/2607.29591v1">Read more</a>
+
+<h3>Cutting Multimodal Token Costs When Feeding Code as Images</h3>
+<p>Rendering code as images for multimodal LLMs is a clever way to reduce input tokens, but naive resolution scaling wastes tokens on blank whitespace and irrelevant code. CodeShrink adaptively compresses based on actual content and task relevance, offering a practical lever for teams building code-understanding tools with MLLMs to cut inference costs.</p>
+<a href="https://arxiv.org/abs/2607.29637v1">Read more</a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td class="content-padding" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 20px 30px; border-radius: 0 0 12px 12px; border-top: 1px solid #2d3748;">
+                            <p style="margin: 0 0 10px 0; color: #718096; font-size: 12px; text-align: center;">
+                                Sources: Anthropic, DeepMind, Import AI, Ahead of AI, arXiv, GitHub
+                            </p>
+                            <p style="margin: 0; color: #718096; font-size: 11px; text-align: center;">
+                                <a href="{{UNSUBSCRIBE_URL}}" style="color: #667eea; text-decoration: none;">Unsubscribe</a>
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

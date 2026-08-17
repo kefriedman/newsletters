@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What You Need to Know: AI</title>
+    <style>
+        @media only screen and (max-width: 620px) {
+            .main-container {
+                width: 100% !important;
+            }
+            .content-padding {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+            .header-padding {
+                padding: 25px 20px !important;
+            }
+            .section-title {
+                font-size: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #0f0f1a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #0f0f1a;">
+        <tr>
+            <td align="center" style="padding: 20px 10px;">
+                <!-- Main Container -->
+                <table role="presentation" class="main-container" width="100%" cellspacing="0" cellpadding="0" style="max-width: 600px; background-color: #1a1a2e; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+
+                    <!-- Header -->
+                    <tr>
+                        <td class="header-padding" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 35px 30px; border-radius: 12px 12px 0 0;">
+                            <h1 style="margin: 0; color: #ffffff; font-size: 26px; font-weight: 600; letter-spacing: -0.5px;">
+                                What You Need to Know: AI
+                            </h1>
+                            <p style="margin: 10px 0 0 0; color: rgba(255,255,255,0.8); font-size: 14px;">
+                                August 17, 2026
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- This Week in AI (Main News Section) -->
+                    <tr>
+                        <td class="content-padding" style="padding: 25px 30px;">
+                            <h2 class="section-title" style="margin: 0 0 15px 0; color: #ffffff; font-size: 21px; border-bottom: 2px solid #667eea; padding-bottom: 10px; font-weight: 600;">
+                                This Week in AI
+                            </h2>
+                            <div style="color: #e2e8f0; font-size: 15px; line-height: 1.7;">
+                                <h2>This Week in AI</h2>
+
+<p>The big story this week is the frontier model arms race heating up again: Anthropic dropped <strong>two</strong> major model updates in quick succession, while Google DeepMind pushed out a faster Gemini variant and a genuinely novel accessibility feature. Anthropic also made news on the safety and transparency front, signaling a more public posture around scrutiny of its models. Here's what practitioners need to know.</p>
+
+<h3>Anthropic Ships Claude Opus 5, a Major Leap for Agents and Coding</h3>
+<p>Opus 5 is being positioned as a "step change" for Anthropic's top-tier model, with specific gains in long-running agentic workflows, coding, and professional tasks. If you're building agents that need to operate over extended sessions without losing coherence, this is the upgrade to test first. Worth benchmarking against your current Opus-based pipelines to see where the gains actually show up.</p>
+<p><a href="https://www.anthropic.com/news/claude-opus-5">Read more</a></p>
+
+<h3>Claude Sonnet 5 Brings Frontier Performance to the Mid Tier</h3>
+<p>Sonnet 5 now claims frontier-level performance on coding, agents, and professional work — historically Opus-tier territory. For teams optimizing cost-to-performance ratios, this could mean shifting production workloads down a tier without sacrificing quality. Worth re-running your eval suite against Sonnet 5 before assuming you still need Opus.</p>
+<p><a href="https://www.anthropic.com/news/claude-sonnet-5">Read more</a></p>
+
+<h3>Google Introduces Gemini 3.7 Flash</h3>
+<p>Google's latest Flash model targets speed and cost efficiency in the Gemini lineup. For high-volume, latency-sensitive applications (chatbots, real-time agents, batch processing), this is likely your best cost/performance option in the Gemini family right now.</p>
+<p><a href="https://deepmind.google/blog/introducing-gemini-3-7-flash/">Read more</a></p>
+
+<h3>DeepMind Launches Sign-Language-to-Text (SL2T)</h3>
+<p>A new model, SL2T, powers sign language features aimed at Deaf and hard-of-hearing users. It's a strong example of applied multimodal AI solving a concrete accessibility problem rather than chasing benchmark scores — worth watching if you work on accessibility tooling or multimodal interfaces.</p>
+<p><a href="https://deepmind.google/blog/putting-sign-language-ai-into-users-hands/">Read more</a></p>
+
+<h3>Anthropic Opens Up to "Hard Questions" and Explains Its Watermarking</h3>
+<p>Anthropic launched an initiative inviting the public to pose tough questions about AI risk and committed to showing its work in response, alongside a separate technical explainer on how Claude's text watermark functions. Together these signal increasing pressure (and transparency effort) around provenance and accountability — relevant if you're navigating AI-content policy or watermark detection in your own products.</p>
+<p><a href="https://www.anthropic.com/news/hard-questions">Hard Questions</a> | <a href="https://www.anthropic.com/news/claude-text-watermark">Watermark explainer</a></p>
+
+<h3>Bonus: Build Your Own AI Text Detector</h3>
+<p>Sebastian Raschka published an end-to-end guide to building an AI text detector from scratch — dataset construction, training, local deployment, and RLVR included. A great hands-on resource if watermarking and detection (see above) are on your roadmap.</p>
+<p><a href="https://magazine.sebastianraschka.com/p/ai-detector-from-scratch">Read more</a></p>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Divider -->
+                    <tr>
+                        <td class="content-padding" style="padding: 0 30px;">
+                            <hr style="border: none; border-top: 1px solid #2d3748; margin: 0;">
+                        </td>
+                    </tr>
+
+                    <!-- Tools Section -->
+                    <tr>
+                        <td class="content-padding" style="padding: 25px 30px;">
+                            <h2 class="section-title" style="margin: 0 0 15px 0; color: #ffffff; font-size: 21px; border-bottom: 2px solid #48bb78; padding-bottom: 10px; font-weight: 600;">
+                                Tools &amp; Repos
+                            </h2>
+                            <div style="color: #e2e8f0; font-size: 15px; line-height: 1.7;">
+                                <p><strong><a href="https://github.com/n8n-io/n8n">n8n</a></strong> — A fair-code workflow automation platform with native AI capabilities, combining visual building with custom code. Supports self-hosting or cloud deployment with 400+ integrations. Good for developers and teams building AI-powered automation pipelines.</p>
+<p><strong><a href="https://github.com/activepieces/activepieces">activepieces</a></strong> — An AI agent and workflow automation platform offering ~400 MCP servers for building AI agents and automations. Good for developers looking to orchestrate AI agents with pre-built MCP integrations.</p>
+<p><strong><a href="https://github.com/upscayl/upscayl">upscayl</a></strong> — A free, open-source AI-powered image upscaler available for Linux, MacOS, and Windows. Good for designers, photographers, and anyone needing to enhance image resolution without paid software.</p>
+<p><strong><a href="https://github.com/Drakkar-Software/OctoBot">OctoBot</a></strong> — An open-source crypto trading bot that automates AI, Grid, DCA, and TradingView strategies across Binance, Hyperliquid, and 15+ exchanges. Good for crypto traders wanting to automate strategies with a simple interface.</p>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Divider -->
+                    <tr>
+                        <td class="content-padding" style="padding: 0 30px;">
+                            <hr style="border: none; border-top: 1px solid #2d3748; margin: 0;">
+                        </td>
+                    </tr>
+
+                    <!-- Research Section -->
+                    <tr>
+                        <td class="content-padding" style="padding: 25px 30px;">
+                            <h2 class="section-title" style="margin: 0 0 15px 0; color: #ffffff; font-size: 21px; border-bottom: 2px solid #ed8936; padding-bottom: 10px; font-weight: 600;">
+                                Research Worth Knowing
+                            </h2>
+                            <div style="color: #e2e8f0; font-size: 15px; line-height: 1.7;">
+                                <h3>Your AI Doctor Recommender Might Be Biased</h3>
+<p>An audit of seven LLMs (including GPT-4o-mini) recommending physicians found that demographic and reputation signals—not just medical qualifications—causally swayed which doctors got recommended. If you're building or deploying LLM-based recommendation systems in healthcare or similar high-stakes domains, this is a concrete warning to audit for hidden bias before shipping.</p>
+<a href="https://arxiv.org/abs/2608.14399v1">Read more</a>
+
+<h3>LLMs Can Know When They Don't Know—Without Extra Passes</h3>
+<p>This work shows a frozen language model can both answer and detect insufficient-evidence situations in a single forward pass, using signals already present in its internal activations. That's a practical win for reducing hallucinations and building cheaper abstention/guardrail systems without retraining or multi-step pipelines.</p>
+<a href="https://arxiv.org/abs/2608.14465v1">Read more</a>
+
+<h3>A Finer-Grained Way to Block Jailbreaks Without Breaking the Model</h3>
+<p>Tripwire identifies specific "safety neurons" that trigger refusal behavior, offering a more surgical alternative to blunt safety interventions that often degrade model usefulness. For teams deploying LLMs in production, this points toward defenses that preserve utility while still catching jailbreak attempts.</p>
+<a href="https://arxiv.org/abs/2608.14392v1">Read more</a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td class="content-padding" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 20px 30px; border-radius: 0 0 12px 12px; border-top: 1px solid #2d3748;">
+                            <p style="margin: 0 0 10px 0; color: #718096; font-size: 12px; text-align: center;">
+                                Sources: Anthropic, DeepMind, Import AI, Ahead of AI, arXiv, GitHub
+                            </p>
+                            <p style="margin: 0; color: #718096; font-size: 11px; text-align: center;">
+                                <a href="{{UNSUBSCRIBE_URL}}" style="color: #667eea; text-decoration: none;">Unsubscribe</a>
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

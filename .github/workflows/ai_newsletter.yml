@@ -1,9 +1,9 @@
 name: Weekly AI Newsletter
 
 on:
-  # Run every Monday at 5 AM Eastern (10 AM UTC)
-  schedule:
-    - cron: '0 10 * * 1'
+  # DISABLED - AI newsletter paused
+  # schedule:
+  #   - cron: '0 10 * * 1'
 
   # Allow manual trigger with mode selection
   workflow_dispatch:

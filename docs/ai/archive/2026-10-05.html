@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What You Need to Know: AI</title>
+    <style>
+        @media only screen and (max-width: 620px) {
+            .main-container {
+                width: 100% !important;
+            }
+            .content-padding {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+            .header-padding {
+                padding: 25px 20px !important;
+            }
+            .section-title {
+                font-size: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #0f0f1a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #0f0f1a;">
+        <tr>
+            <td align="center" style="padding: 20px 10px;">
+                <!-- Main Container -->
+                <table role="presentation" class="main-container" width="100%" cellspacing="0" cellpadding="0" style="max-width: 600px; background-color: #1a1a2e; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+
+                    <!-- Header -->
+                    <tr>
+                        <td class="header-padding" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 35px 30px; border-radius: 12px 12px 0 0;">
+                            <h1 style="margin: 0; color: #ffffff; font-size: 26px; font-weight: 600; letter-spacing: -0.5px;">
+                                What You Need to Know: AI
+                            </h1>
+                            <p style="margin: 10px 0 0 0; color: rgba(255,255,255,0.8); font-size: 14px;">
+                                October 05, 2026
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- This Week in AI (Main News Section) -->
+                    <tr>
+                        <td class="content-padding" style="padding: 25px 30px;">
+                            <h2 class="section-title" style="margin: 0 0 15px 0; color: #ffffff; font-size: 21px; border-bottom: 2px solid #667eea; padding-bottom: 10px; font-weight: 600;">
+                                This Week in AI
+                            </h2>
+                            <div style="color: #e2e8f0; font-size: 15px; line-height: 1.7;">
+                                <p>Google DeepMind kicked off the week with a major frontier model release, while Anthropic had an unusually packed slate of enterprise, science, and safety announcements. The throughline: AI labs are racing to prove out real-world deployment at scale, from banking to biotech to engineering education.</p>
+
+<h3>Google Launches Gemini 4 Argon</h3>
+<p>DeepMind introduced <strong>Gemini 4 Argon</strong>, billed as its next era of frontier intelligence. Details are still emerging, but practitioners building on Gemini should expect new capability and API updates to roll out shortly — worth testing against your current production prompts to see where it beats prior versions. <a href="https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence/">Read more</a></p>
+
+<h3>SynthID Bio: Watermarking for AI-Generated Proteins</h3>
+<p>DeepMind released a proof of concept for <strong>SynthID Bio</strong>, a system that watermarks AI-generated protein sequences without disrupting their biological function. This is an early but important step toward provenance tracking in synthetic biology — relevant for anyone working at the intersection of generative AI and life sciences, especially as biosecurity concerns grow. <a href="https://deepmind.google/blog/introducing-synthid-bio/">Read more</a></p>
+
+<h3>Anthropic Commits $100M to Train 10,000 Engineers</h3>
+<p>Anthropic's new <strong>Claude Frontier Academy</strong> initiative puts $100 million toward training engineers to close the enterprise AI talent gap. For practitioners, this signals growing recognition that the bottleneck isn't model capability but skilled implementation — and may be a good upskilling opportunity depending on eligibility. <a href="https://www.anthropic.com/news/claude-frontier-academy">Read more</a></p>
+
+<h3>Barclays Scales Claude Across Operations</h3>
+<p>Barclays is expanding its use of Claude to improve internal operations and client-facing experience, one of the more concrete signals yet of large-scale LLM adoption in traditional banking. Worth watching as a case study for regulated-industry deployment patterns. <a href="https://www.anthropic.com/news/barclays-scales-claude">Read more</a></p>
+
+<h3>Claude Discovers a Novel Enzyme System</h3>
+<p>In a notable science milestone, Claude reportedly helped identify a novel enzyme system featuring CRISPR-like repeats. This adds to a growing body of evidence that LLMs are becoming genuine research collaborators in molecular biology, not just literature summarizers. <a href="https://www.anthropic.com/news/claude-discovers-novel-enzyme-system">Read more</a></p>
+
+<h3>New Life Sciences Verification Program</h3>
+<p>Anthropic also launched a <strong>Life Sciences Verification Program</strong>, alongside a partnership with Accenture on embedded evaluation — both aimed at building more rigorous safety and accuracy checks into high-stakes AI deployments. For teams in regulated sectors, these frameworks may offer a preview of emerging best practices. <a href="https://www.anthropic.com/news/life-sciences-verification-program">Read more</a></p>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Divider -->
+                    <tr>
+                        <td class="content-padding" style="padding: 0 30px;">
+                            <hr style="border: none; border-top: 1px solid #2d3748; margin: 0;">
+                        </td>
+                    </tr>
+
+                    <!-- Tools Section -->
+                    <tr>
+                        <td class="content-padding" style="padding: 25px 30px;">
+                            <h2 class="section-title" style="margin: 0 0 15px 0; color: #ffffff; font-size: 21px; border-bottom: 2px solid #48bb78; padding-bottom: 10px; font-weight: 600;">
+                                Tools &amp; Repos
+                            </h2>
+                            <div style="color: #e2e8f0; font-size: 15px; line-height: 1.7;">
+                                <p><strong><a href="https://github.com/openbq-org/OpenBB">OpenBB</a></strong> — An open data platform that aggregates financial and market data for analysis and automation. It's built with AI agents in mind, making it easy to wire data feeds directly into agentic workflows. Good for quants, financial analysts, and developers building AI-driven trading or research tools.</p>
+<p><strong><a href="https://github.com/aquasecurity/trivy">trivy</a></strong> — A comprehensive security scanner that detects vulnerabilities, misconfigurations, secrets, and generates SBOMs across containers, Kubernetes, code repos, and cloud environments. It integrates easily into CI/CD pipelines for continuous security checks. Good for DevSecOps teams and engineers securing containerized or cloud-native applications.</p>
+<p><strong><a href="https://github.com/PostHog/posthog">posthog</a></strong> — An all-in-one product analytics suite offering session replay, feature flags, experiments, error tracking, and AI observability. It helps teams understand user behavior and diagnose issues with full context, including for AI agent-driven products. Good for product managers, engineers, and teams building and monitoring AI-powered applications.</p>
+<p><strong><a href="https://github.com/microsoft/onnxruntime">onnxruntime</a></strong> — A cross-platform inference and training accelerator for ONNX models, optimized for performance across CPUs, GPUs, and specialized hardware. It enables faster deployment of machine learning models in production environments. Good for ML engineers and teams needing efficient, portable model inference.</p>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Divider -->
+                    <tr>
+                        <td class="content-padding" style="padding: 0 30px;">
+                            <hr style="border: none; border-top: 1px solid #2d3748; margin: 0;">
+                        </td>
+                    </tr>
+
+                    <!-- Research Section -->
+                    <tr>
+                        <td class="content-padding" style="padding: 25px 30px;">
+                            <h2 class="section-title" style="margin: 0 0 15px 0; color: #ffffff; font-size: 21px; border-bottom: 2px solid #ed8936; padding-bottom: 10px; font-weight: 600;">
+                                Research Worth Knowing
+                            </h2>
+                            <div style="color: #e2e8f0; font-size: 15px; line-height: 1.7;">
+                                <h3>A Chess AI That Can Actually Explain Its Moves</h3>
+<p>Researchers built Queen, a 4B-parameter model that plays chess at Grandmaster level while generating human-readable explanations of its strategy—solving the classic tradeoff between powerful-but-silent chess engines and chatty-but-weak language models. This hybrid approach (combining domain-specific reasoning with language generation) is a useful blueprint for building explainable AI in other complex, rule-based domains like trading or logistics planning.</p>
+<a href="https://arxiv.org/abs/2610.03695v1">Read more</a>
+
+<h3>Making LLM-Powered Optimization Cheaper</h3>
+<p>FrugalEvo tackles a real pain point: LLM-guided evolutionary optimization (à la AlphaEvolve) can get expensive fast when you're iterating with top-tier models. Their solution—using an expensive LLM for high-level strategy and a cheap one for implementation—optimizes for *gain per dollar* instead of raw performance, directly addressing production cost constraints.</p>
+<a href="https://arxiv.org/abs/2610.03675v1">Read more</a>
+
+<h3>A Better Way to Check If AI-Generated Images Match Their Prompts</h3>
+<p>DEPICT introduces a more reliable scoring method for text-to-image alignment by checking answer agreement rather than relying on fine-tuned preference models or single VLM judgments. This matters for anyone building or evaluating image generation pipelines—better alignment metrics mean better automated QA and data curation at scale.</p>
+<a href="https://arxiv.org/abs/2610.03617v1">Read
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td class="content-padding" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 20px 30px; border-radius: 0 0 12px 12px; border-top: 1px solid #2d3748;">
+                            <p style="margin: 0 0 10px 0; color: #718096; font-size: 12px; text-align: center;">
+                                Sources: Anthropic, DeepMind, Import AI, Ahead of AI, arXiv, GitHub
+                            </p>
+                            <p style="margin: 0; color: #718096; font-size: 11px; text-align: center;">
+                                <a href="{{UNSUBSCRIBE_URL}}" style="color: #667eea; text-decoration: none;">Unsubscribe</a>
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What You Need to Know: AI</title>
+    <style>
+        @media only screen and (max-width: 620px) {
+            .main-container {
+                width: 100% !important;
+            }
+            .content-padding {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+            .header-padding {
+                padding: 25px 20px !important;
+            }
+            .section-title {
+                font-size: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #0f0f1a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #0f0f1a;">
+        <tr>
+            <td align="center" style="padding: 20px 10px;">
+                <!-- Main Container -->
+                <table role="presentation" class="main-container" width="100%" cellspacing="0" cellpadding="0" style="max-width: 600px; background-color: #1a1a2e; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+
+                    <!-- Header -->
+                    <tr>
+                        <td class="header-padding" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 35px 30px; border-radius: 12px 12px 0 0;">
+                            <h1 style="margin: 0; color: #ffffff; font-size: 26px; font-weight: 600; letter-spacing: -0.5px;">
+                                What You Need to Know: AI
+                            </h1>
+                            <p style="margin: 10px 0 0 0; color: rgba(255,255,255,0.8); font-size: 14px;">
+                                October 12, 2026
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- This Week in AI (Main News Section) -->
+                    <tr>
+                        <td class="content-padding" style="padding: 25px 30px;">
+                            <h2 class="section-title" style="margin: 0 0 15px 0; color: #ffffff; font-size: 21px; border-bottom: 2px solid #667eea; padding-bottom: 10px; font-weight: 600;">
+                                This Week in AI
+                            </h2>
+                            <div style="color: #e2e8f0; font-size: 15px; line-height: 1.7;">
+                                <h3>This Week in AI: Anthropic Doubles Down on Security and Workforce, Google Ships a Leaner Embedding Model</h3>
+
+<p>This week's news skewed heavily toward infrastructure and policy rather than flashy new chatbots. Anthropic was the dominant voice, rolling out a cluster of announcements spanning cybersecurity, government partnerships, enterprise training, and a refreshed usage policy. Meanwhile, Google DeepMind quietly shipped a new lightweight embedding model aimed at developers building retrieval and search systems. The throughline: AI providers are investing more visibly in trust, safety infrastructure, and talent pipelines as the technology matures past the "demo" phase.</p>
+
+<h3><strong>EmbeddingGemma 2 Brings Multimodal Embeddings to the Edge</strong></h3>
+<p>Google DeepMind released EmbeddingGemma 2, an open, lightweight embedding model that now supports multimodal inputs alongside text. For practitioners building RAG pipelines, semantic search, or on-device apps, this matters because it offers a smaller footprint without sacrificing the ability to embed images and text into a shared vector space — useful for cost-sensitive or edge deployments.</p>
+<p><a href="https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/">Read more →</a></p>
+
+<h3><strong>Anthropic Launches a Dedicated Cyber Mission</strong></h3>
+<p>Anthropic introduced its "Cyber Mission," a formal initiative focused on applying Claude models to cybersecurity defense and threat detection. This signals growing enterprise demand for AI-assisted security tooling, and practitioners in infosec should watch for new Claude capabilities or partnerships tailored to vulnerability research and incident response.</p>
+<p><a href="https://www.anthropic.com/news/anthropic-cyber-mission">Read more →</a></p>
+
+<h3><strong>Cyber Verification Program Expands</strong></h3>
+<p>Building on that momentum, Anthropic expanded its Cyber Verification Program, which audits how Claude handles sensitive security-related tasks. For teams deploying AI in regulated or security-critical environments, this expanded verification process could become a reference model for responsible-use certification.</p>
+<p><a href="https://www.anthropic.com/news/cyber-verification-program">Read more →</a></p>
+
+<h3><strong>$100M Bet on Enterprise AI Talent</strong></h3>
+<p>Anthropic is investing $100 million to train 10,000 engineers through its new Claude Frontier Academy, directly targeting the enterprise AI talent shortage. Practitioners and hiring managers should keep an eye on this program as a potential pipeline for AI-fluent engineering talent and a signal of where upskilling investment is heading.</p>
+<p><a href="https://www.anthropic.com/news/claude-frontier-academy">Read more →</a></p>
+
+<h3><strong>Updated Usage Policy and Genesis Mission Commitment</strong></h3>
+<p>Anthropic also published a <strong>2026 Usage Policy update</strong> and detailed new commitments supporting American scientific research under its "Genesis Mission." Together, these moves suggest tightening governance frameworks alongside deeper public-sector collaboration — worth a read for anyone building on Claude's API or navigating compliance requirements.</p>
+<p><a href="https://www.anthropic.com/news/2026-usage-policy-update">Usage Policy →</a> | <a href="https://www.anthropic.com/news/genesis-mission-commitment">Genesis Mission →</a></p>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Divider -->
+                    <tr>
+                        <td class="content-padding" style="padding: 0 30px;">
+                            <hr style="border: none; border-top: 1px solid #2d3748; margin: 0;">
+                        </td>
+                    </tr>
+
+                    <!-- Tools Section -->
+                    <tr>
+                        <td class="content-padding" style="padding: 25px 30px;">
+                            <h2 class="section-title" style="margin: 0 0 15px 0; color: #ffffff; font-size: 21px; border-bottom: 2px solid #48bb78; padding-bottom: 10px; font-weight: 600;">
+                                Tools &amp; Repos
+                            </h2>
+                            <div style="color: #e2e8f0; font-size: 15px; line-height: 1.7;">
+                                <p><strong><a href="https://github.com/invoke-ai/InvokeAI">InvokeAI</a></strong> — A polished WebUI for Stable Diffusion that powers several commercial products, letting users generate and edit images with advanced diffusion workflows. Good for artists, designers, and professionals who want a production-ready creative engine without building their own UI.</p>
+<p><strong><a href="https://github.com/huggingface/transformers">transformers</a></strong> — The go-to framework for state-of-the-art models across text, vision, audio, and multimodal tasks, supporting both training and inference. Good for ML engineers and researchers who need a standardized way to work with pretrained models.</p>
+<p><strong><a href="https://github.com/f/prompts.chat">prompts.chat</a></strong> — A community-driven, open-source hub for discovering and sharing effective prompts, with self-hosting options for private team use. Good for prompt engineers, content creators, and teams looking to standardize their AI prompting practices.</p>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Divider -->
+                    <tr>
+                        <td class="content-padding" style="padding: 0 30px;">
+                            <hr style="border: none; border-top: 1px solid #2d3748; margin: 0;">
+                        </td>
+                    </tr>
+
+                    <!-- Research Section -->
+                    <tr>
+                        <td class="content-padding" style="padding: 25px 30px;">
+                            <h2 class="section-title" style="margin: 0 0 15px 0; color: #ffffff; font-size: 21px; border-bottom: 2px solid #ed8936; padding-bottom: 10px; font-weight: 600;">
+                                Research Worth Knowing
+                            </h2>
+                            <div style="color: #e2e8f0; font-size: 15px; line-height: 1.7;">
+                                <h3>Your "Deterministic" LLM Pipeline Isn't</h3>
+<p>Running the same query twice at temperature 0 through LLM-based data processing engines can still flip results—researchers found up to 10% of row-level outputs changed on re-execution across 1.2 million model calls. If you're building semantic search, data labeling, or ETL pipelines on top of LLMs, this is a critical reminder to measure and design for run-to-run variance, not just single-run accuracy.</p>
+<a href="https://arxiv.org/abs/2610.13823v1">Same Query, Different Answer</a>
+
+<h3>Robot Policies That Know What Time It Is</h3>
+<p>Most robot policies assume fixed-rate sensing and instant inference, which breaks down when latency or observation timing varies in the real world. Chronos Policy explicitly conditions on actual capture and execution timestamps, making diffusion-based control robust to the timing jitter that's unavoidable in production robotics systems.</p>
+<a href="https://arxiv.org/abs/2610.13929v1">Chronos Policy: Learning Robot Policies on Physical Time</a>
+
+<h3>Cheaper Long-Context Models Without the Usual Trade-off</h3>
+<p>Token compression for vision/language models typically forces a choice between speed and information loss. LapMerge offers a differentiable merging method that hits an exact token budget while preserving more information than prior pairwise-matching approaches—useful for anyone trying to cut inference costs on long sequences.</p>
+<a href="https://arxiv.org/abs/2610.13858v1">LapMerge: Fast, Lossless-ish Token Compression</a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td class="content-padding" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 20px 30px; border-radius: 0 0 12px 12px; border-top: 1px solid #2d3748;">
+                            <p style="margin: 0 0 10px 0; color: #718096; font-size: 12px; text-align: center;">
+                                Sources: Anthropic, DeepMind, Import AI, Ahead of AI, arXiv, GitHub
+                            </p>
+                            <p style="margin: 0; color: #718096; font-size: 11px; text-align: center;">
+                                <a href="{{UNSUBSCRIBE_URL}}" style="color: #667eea; text-decoration: none;">Unsubscribe</a>
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

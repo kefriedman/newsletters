@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What You Need to Know: AI</title>
+    <style>
+        @media only screen and (max-width: 620px) {
+            .main-container {
+                width: 100% !important;
+            }
+            .content-padding {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+            .header-padding {
+                padding: 25px 20px !important;
+            }
+            .section-title {
+                font-size: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #0f0f1a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #0f0f1a;">
+        <tr>
+            <td align="center" style="padding: 20px 10px;">
+                <!-- Main Container -->
+                <table role="presentation" class="main-container" width="100%" cellspacing="0" cellpadding="0" style="max-width: 600px; background-color: #1a1a2e; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+
+                    <!-- Header -->
+                    <tr>
+                        <td class="header-padding" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 35px 30px; border-radius: 12px 12px 0 0;">
+                            <h1 style="margin: 0; color: #ffffff; font-size: 26px; font-weight: 600; letter-spacing: -0.5px;">
+                                What You Need to Know: AI
+                            </h1>
+                            <p style="margin: 10px 0 0 0; color: rgba(255,255,255,0.8); font-size: 14px;">
+                                November 23, 2026
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- This Week in AI (Main News Section) -->
+                    <tr>
+                        <td class="content-padding" style="padding: 25px 30px;">
+                            <h2 class="section-title" style="margin: 0 0 15px 0; color: #ffffff; font-size: 21px; border-bottom: 2px solid #667eea; padding-bottom: 10px; font-weight: 600;">
+                                This Week in AI
+                            </h2>
+                            <div style="color: #e2e8f0; font-size: 15px; line-height: 1.7;">
+                                <h3>This Week in AI</h3>
+
+<p>It was a landmark week on the corporate side of AI: <strong>Anthropic completed its initial public offering</strong>, becoming the first frontier AI lab to go public, while simultaneously carving out a novel public-benefit structure for its equity. On the research front, Google DeepMind shipped a wave of updates — from new Gemini and Genie model versions to an ambitious use of AI agents for discovering quantum algorithms. Here's what practitioners need to know.</p>
+
+<h3>Anthropic Goes Public</h3>
+<p>Anthropic priced and closed its IPO this week, including full exercise of the underwriters' option and a concurrent private placement — a major milestone that gives the company significant new capital and public-market visibility. For practitioners, this signals increased financial stability and likely accelerated investment in Claude's roadmap, but also new public-reporting pressures that could shape how the company balances growth with safety commitments.</p>
+<p><a href="https://www.anthropic.com/news/ipo-close">Read more: IPO closing</a> | <a href="https://www.anthropic.com/news/anthropic-prices-initial-public-offering">IPO pricing</a></p>
+
+<h3>Anthropic Commits Equity to a Public Benefit Fund</h3>
+<p>Alongside the IPO, Anthropic announced it's dedicating a portion of company shares to a new <strong>Anthropic Public Benefit Fund</strong>, structured so its stake grows alongside the company. This is a notable governance experiment worth watching — it reflects how AI labs are trying to formalize public-interest commitments even as they pursue aggressive commercial growth.</p>
+<p><a href="https://www.anthropic.com/news/public-benefit-fund">Read more</a></p>
+
+<h3>Gemini 4 Neon Arrives</h3>
+<p>Google DeepMind introduced <strong>Gemini 4 Neon</strong>, the latest entry in its Gemini model family. Details are still emerging, but new Gemini releases have historically brought improvements in reasoning, multimodal handling, and latency — worth testing against your current production model if you're building on Gemini.</p>
+<p><a href="https://deepmind.google/blog/introducing-gemini-4-neon/">Read more</a></p>
+
+<h3>Genie 4 Launches</h3>
+<p>DeepMind also released <strong>Genie 4</strong>, the newest version of its world-model system for generating interactive environments. Genie models are increasingly relevant for simulation, robotics training, and game prototyping — practitioners in those spaces should check whether the new version improves fidelity or controllability enough to revisit prior integrations.</p>
+<p><a href="https://deepmind.google/blog/genie-4-is-now-available/">Read more</a></p>
+
+<h3>AI Agents Discover Faster Quantum Algorithms</h3>
+<p>DeepMind researchers combined <strong>agent teams with formal verification</strong> to find improved quantum algorithms relevant to fusion energy and chemistry simulation. This is a strong proof point for agentic AI applied to hard scientific problems where correctness can be formally checked — a pattern practitioners building verification-heavy agent pipelines should study closely.</p>
+<p><a href="https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/">Read more</a></p>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Divider -->
+                    <tr>
+                        <td class="content-padding" style="padding: 0 30px;">
+                            <hr style="border: none; border-top: 1px solid #2d3748; margin: 0;">
+                        </td>
+                    </tr>
+
+                    <!-- Tools Section -->
+                    <tr>
+                        <td class="content-padding" style="padding: 25px 30px;">
+                            <h2 class="section-title" style="margin: 0 0 15px 0; color: #ffffff; font-size: 21px; border-bottom: 2px solid #48bb78; padding-bottom: 10px; font-weight: 600;">
+                                Tools &amp; Repos
+                            </h2>
+                            <div style="color: #e2e8f0; font-size: 15px; line-height: 1.7;">
+                                <p><strong><a href="https://github.com/openai/whisper">Whisper</a></strong> — OpenAI's robust speech recognition model trained via large-scale weak supervision, supporting transcription and translation across many languages. Good for developers building voice interfaces, transcription services, or accessibility tools.</p>
+
+<p><strong><a href="https://github.com/ggml-org/whisper.cpp">whisper.cpp</a></strong> — A lightweight C/C++ port of Whisper optimized for running speech recognition efficiently on CPUs and edge devices without heavy dependencies. Good for engineers deploying speech-to-text on resource-constrained or embedded systems.</p>
+
+<p><strong><a href="https://github.com/facebookresearch/faiss">Faiss</a></strong> — A high-performance library for similarity search and clustering of dense vectors at scale. Good for ML engineers building recommendation systems, semantic search, or RAG pipelines.</p>
+
+<p><strong><a href="https://github.com/skypilot-org/skypilot">SkyPilot</a></strong> — An AI compute platform that unifies fragmented cloud and cluster resources into a single, easy-to-use supercomputer abstraction. Good for AI teams training and deploying models across multiple clouds or GPUs.</p>
+
+<p><strong><a href="https://github.com/windmill-labs/windmill">Windmill</a></strong> — A code-first orchestration platform for building workflows, apps, and AI agents, benchmarked as faster than Airflow, Prefect, and Temporal. Good for engineering teams needing a self-hostable alternative to Retool or n8n.</p>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Divider -->
+                    <tr>
+                        <td class="content-padding" style="padding: 0 30px;">
+                            <hr style="border: none; border-top: 1px solid #2d3748; margin: 0;">
+                        </td>
+                    </tr>
+
+                    <!-- Research Section -->
+                    <tr>
+                        <td class="content-padding" style="padding: 25px 30px;">
+                            <h2 class="section-title" style="margin: 0 0 15px 0; color: #ffffff; font-size: 21px; border-bottom: 2px solid #ed8936; padding-bottom: 10px; font-weight: 600;">
+                                Research Worth Knowing
+                            </h2>
+                            <div style="color: #e2e8f0; font-size: 15px; line-height: 1.7;">
+                                <h3>Scalable Memory for Long-Running LLM Deployments</h3>
+<p>MemOnce tackles a real deployment bottleneck: standard transformers blow up GPU memory and compute as conversations or context windows grow, while existing "linear" memory tricks lose important details. The new architecture aims to give reusable, fixed-size memory states without sacrificing fine-grained recall—useful for anyone building long-horizon agents or persistent chat assistants.</p>
+<a href="https://arxiv.org/abs/2611.27973v1">MemOnce: A Scalable Memory Architecture for Large Language Models</a>
+
+<h3>A Smarter, Cheaper Way to Fine-Tune with LoRA</h3>
+<p>MoLR improves on standard LoRA by recursively refining a shared low-rank transformation instead of just adding more parameters, boosting adaptation quality while keeping the parameter count flat. For teams fine-tuning large models on tight compute budgets, this could mean better task performance without the usual VRAM/parameter tradeoff.</p>
+<a href="https://arxiv.org/abs/2611.27823v1">Mixture of Latent Recursions for Low-Rank Adaptation</a>
+
+<h3>Faster-Than-Simulation Molecular Dynamics</h3>
+<p>BioEmu2 generates atomically accurate biomolecular structures and dynamics orders of magnitude faster than traditional molecular dyn
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td class="content-padding" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 20px 30px; border-radius: 0 0 12px 12px; border-top: 1px solid #2d3748;">
+                            <p style="margin: 0 0 10px 0; color: #718096; font-size: 12px; text-align: center;">
+                                Sources: Anthropic, DeepMind, Import AI, Ahead of AI, arXiv, GitHub
+                            </p>
+                            <p style="margin: 0; color: #718096; font-size: 11px; text-align: center;">
+                                <a href="{{UNSUBSCRIBE_URL}}" style="color: #667eea; text-decoration: none;">Unsubscribe</a>
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
